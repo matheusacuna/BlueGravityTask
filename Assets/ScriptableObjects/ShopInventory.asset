@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef7b26af977fac34abe64388f732b60b, type: 3}
-  m_Name: Item
+  m_Script: {fileID: 11500000, guid: 3ee074de167768c49a5f36cf3e568e7b, type: 3}
+  m_Name: ShopInventory
   m_EditorClassIdentifier: 
-  iconItem: {fileID: 0}
-  buyPriceItem: 0
-  resalePriceItem: 0
+  listItens:
+  - {fileID: 11400000, guid: 99838107635c2db48a31aadfde9ae5ad, type: 2}

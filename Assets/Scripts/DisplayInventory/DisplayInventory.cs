@@ -26,7 +26,7 @@ public class DisplayInventory : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             GameObject obj = Instantiate(itemDefault, grid);
-            obj.GetComponent<SetupItem>().item = list[i];
+            obj.GetComponent<SetupItem>().item = inventory.listItens[i];
         }
     }
 }
