@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] CoinManager coinManager;
+    [SerializeField] InventorySO invetoryPlayer;
+    [SerializeField] InventorySO invetorShop;
 
-    // Update is called once per frame
-    void Update()
+    public Item itemSelected;
+
+    public static ShopManager Instance;
+    private void Awake()
     {
-        
+        Instance = this;
+    }
+    public void GetItem(Item item)
+    {
+        itemSelected = item;
     }
 }
