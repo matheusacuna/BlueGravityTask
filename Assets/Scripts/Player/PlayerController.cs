@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public InputManager myInputs;
 
     private Rigidbody2D rig;
-    private Animator anim;
+    public Animator anim;
     public Transform body;
 
     private Vector2 movement;
@@ -20,13 +20,12 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
 
     }
     void Update()
     {
         Inputs();
-        //SetAnimations();
+        SetAnimations();
         Flip();
     }
 
@@ -68,8 +67,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //private void SetAnimations()
-    //{
-    //    anim.SetFloat("walkSpeed", movement.magnitude);
-    //}
+    private void SetAnimations()
+    {
+        anim.SetFloat("walkSpeed", movement.magnitude);
+    }
 }
