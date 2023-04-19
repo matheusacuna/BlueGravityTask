@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] CoinManager coinManager;
     [SerializeField] InventorySO invetoryPlayer;
-    [SerializeField] InventorySO invetorShop;
+    public InventorySO invetorShop;
 
     public Item itemSelected;
     public GameObject itemSelectedObj;
@@ -21,6 +21,7 @@ public class ShopManager : MonoBehaviour
     {
         itemSelected = item;
         itemSelectedObj = obj;
+        itemSelectedObj.transform.GetChild(1).gameObject.SetActive(true);
     }
 
     public void BuyItem()

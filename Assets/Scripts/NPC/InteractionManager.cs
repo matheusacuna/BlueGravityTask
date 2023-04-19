@@ -19,6 +19,7 @@ namespace Managers
                 if (myInput.input.Player.Interaction.triggered)
                 {
                     shopUI.SetActive(true);
+                    ShopManager.Instance.invetorShop = shopUI.GetComponent<DisplayInventory>().inventory;
                 }
             }
         }
