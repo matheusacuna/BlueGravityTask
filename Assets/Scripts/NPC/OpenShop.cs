@@ -11,6 +11,7 @@ namespace Managers
         [SerializeField] private GameObject shopUI;
         [SerializeField] private InputManager myInput;
         [SerializeField] private DisplayInventory displayInventory;
+
         public InventorySO inventorySO;
 
         private void Update()
@@ -19,8 +20,8 @@ namespace Managers
             {
                 if (myInput.input.Player.Interaction.triggered)
                 {
-                    ShopManager.Instance.invetorShop = inventorySO;
-                    displayInventory.inventory = inventorySO;
+                    ShopManager.Instance.inventoryShop = inventorySO;
+                    displayInventory.inventoryReference = inventorySO;
                     shopUI.SetActive(true);
                 }
             }
@@ -41,7 +42,7 @@ namespace Managers
             {
                 isTouchNPC = false;
                 animAlertShop.SetActive(false);
-                displayInventory.inventory = null;
+                displayInventory.inventoryReference = null;
             }
         }
     }

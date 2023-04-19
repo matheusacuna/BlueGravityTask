@@ -3,32 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum InventoryType { inventoryNPC, inventoryPlayer};
 public class DisplayInventory : MonoBehaviour
 {
-    public InventorySO inventory;
+    public InventorySO inventoryReference;
     public GameObject itemDefault;
     public Transform grid;
-    // Start is called before the first frame update
+    public InventoryType inventoryType;
+    
     private void OnEnable()
     {
-        CreateDisplay(inventory.listItens);
+        CreateDisplay(inventoryReference.listItens);
     }
 
     private void OnDisable()
     {
-        for (int i = 0; i < grid.childCount; i++)
-        {
-            Destroy(grid.GetChild(i).gameObject);
-        }
+        DestroyGameObjectContainer();
     }
 
     private void CreateDisplay(List<Item> list)
     {
-        for (int i = 0; i < list.Count; i++)
+        switch (inventoryType)
         {
-            GameObject obj = Instantiate(itemDefault, grid);
-            obj.GetComponent<SetupItem>().item = inventory.listItens[i];
-            obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ShopManager.Instance.GetItem(obj.GetComponent<SetupItem>().item, obj));
+            case InventoryType.inventoryNPC:
+                for (int i = 0; i < list.Count; i++)
+                {
+                    GameObject obj = Instantiate(itemDefault, grid);
+                    obj.GetComponent<SetupItem>().item = inventoryReference.listItens[i];
+                    obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ShopManager.Instance.GetItem(obj.GetComponent<SetupItem>().item, obj));
+                }
+                break;
+            case InventoryType.inventoryPlayer:
+                for (int i = 0; i < list.Count; i++)
+                {
+                    GameObject obj = Instantiate(itemDefault, grid);
+                    obj.GetComponent<SetupItem>().item = inventoryReference.listItens[i];
+
+                    Destroy(obj.transform.GetChild(3).gameObject);
+                    obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ShopManager.Instance.GetItem(obj.GetComponent<SetupItem>().item, obj));
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void DestroyGameObjectContainer()
+    {
+        for (int i = 0; i < grid.childCount; i++)
+        {
+            Destroy(grid.GetChild(i).gameObject);
         }
     }
 }

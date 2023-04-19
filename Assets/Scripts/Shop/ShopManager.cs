@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] CoinManager coinManager;
     [SerializeField] InventorySO invetoryPlayer;
-    public InventorySO invetorShop;
+    public InventorySO inventoryShop;
 
     public Item itemSelected;
     public GameObject itemSelectedObj;
@@ -37,4 +37,11 @@ public class ShopManager : MonoBehaviour
             invetoryPlayer.listItens.Add(itemSelected);
         }
     }
+
+    public void SellItem()
+    {
+        coinManager.IncrementCoin(itemSelected.resalePriceItem);
+        Destroy(itemSelectedObj);
+    }
+
 }
