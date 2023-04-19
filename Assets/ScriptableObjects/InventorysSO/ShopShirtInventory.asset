@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee074de167768c49a5f36cf3e568e7b, type: 3}
+  m_Name: ShopShirtInventory
+  m_EditorClassIdentifier: 
+  listItens:
+  - {fileID: 11400000, guid: 99838107635c2db48a31aadfde9ae5ad, type: 2}
+  - {fileID: 11400000, guid: 5f8bccdf9625513478e6027a4bb7c105, type: 2}
+  - {fileID: 11400000, guid: 5b11ca04c742fa24d9751b3bafa0f93e, type: 2}

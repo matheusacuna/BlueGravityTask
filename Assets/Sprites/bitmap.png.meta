@@ -1707,9 +1707,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 889
-        y: 217
+        y: 228
         width: 59
-        height: 62
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1728,9 +1728,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 959
-        y: 217
+        y: 228
         width: 57
-        height: 62
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1740,27 +1740,6 @@ TextureImporter:
       bones: []
       spriteID: dab3edbcaeacadb40897f288faae984c
       internalID: -491604812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bitmap_92
-      rect:
-        serializedVersion: 2
-        x: 989
-        y: 217
-        width: 28
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 130bbb3fd10c0514494dd9f7521f042b
-      internalID: 1272545601
       vertices: []
       indices: 
       edges: []

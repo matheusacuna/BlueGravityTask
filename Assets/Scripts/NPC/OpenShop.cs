@@ -4,13 +4,14 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class InteractionManager : MonoBehaviour
+    public class OpenShop : MonoBehaviour
     {
         [SerializeField] bool isTouchNPC;
         [SerializeField] private GameObject animAlertShop;
         [SerializeField] private GameObject shopUI;
         [SerializeField] private InputManager myInput;
-        //[SerializeField] private GameObject displayInventory;
+        [SerializeField] private DisplayInventory displayInventory;
+        public InventorySO inventorySO;
 
         private void Update()
         {
@@ -18,8 +19,9 @@ namespace Managers
             {
                 if (myInput.input.Player.Interaction.triggered)
                 {
+                    ShopManager.Instance.invetorShop = inventorySO;
+                    displayInventory.inventory = inventorySO;
                     shopUI.SetActive(true);
-                    ShopManager.Instance.invetorShop = shopUI.GetComponent<DisplayInventory>().inventory;
                 }
             }
         }
@@ -39,6 +41,7 @@ namespace Managers
             {
                 isTouchNPC = false;
                 animAlertShop.SetActive(false);
+                displayInventory.inventory = null;
             }
         }
     }
