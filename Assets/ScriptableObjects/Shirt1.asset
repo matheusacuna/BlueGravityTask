@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7b26af977fac34abe64388f732b60b, type: 3}
   m_Name: Shirt1
   m_EditorClassIdentifier: 
+  typeEquips: 1
   iconItem: {fileID: -827619678, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
   buyPriceItem: 10
   resalePriceItem: 5
+  sprites:
+  - {fileID: -827619678, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}

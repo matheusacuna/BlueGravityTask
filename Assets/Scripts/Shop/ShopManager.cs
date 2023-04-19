@@ -21,6 +21,11 @@ public class ShopManager : MonoBehaviour
     {
         itemSelected = item;
         itemSelectedObj = obj;
+
+        for (int i = 0; i < itemSelectedObj.transform.parent.childCount; i++)
+        {
+            itemSelectedObj.transform.parent.GetChild(i).GetChild(1).gameObject.SetActive(false);
+        }
         itemSelectedObj.transform.GetChild(1).gameObject.SetActive(true);
     }
 
