@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayInventory : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class DisplayInventory : MonoBehaviour
         {
             GameObject obj = Instantiate(itemDefault, grid);
             obj.GetComponent<SetupItem>().item = inventory.listItens[i];
+            obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ShopManager.Instance.GetItem(obj.GetComponent<SetupItem>().item, obj));
         }
     }
 }
