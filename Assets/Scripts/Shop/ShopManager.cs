@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.IO;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] CoinManager coinManager;
-    [SerializeField] InventorySO invetoryPlayer;
-    public InventorySO inventoryShop;
-
+    [Header("Item Selected")]
     public Item itemSelected;
     public GameObject itemSelectedObj;
+    public bool isSelected;
+
+    [Header("References Scripts")]
+    [SerializeField] CoinManager coinManager;
+    [SerializeField] InventorySO inventoryPlayer;
+    public DisplayInventory displayInventory;
+
+    public GameObject buttonPurchase;
 
     public static ShopManager Instance;
     private void Awake()
@@ -22,6 +28,11 @@ public class ShopManager : MonoBehaviour
         itemSelected = item;
         itemSelectedObj = obj;
 
+        if(displayInventory.inventoryType == InventoryType.inventoryNPC)
+        {
+            buttonPurchase.gameObject.SetActive(true);
+        }
+     
         for (int i = 0; i < itemSelectedObj.transform.parent.childCount; i++)
         {
             itemSelectedObj.transform.parent.GetChild(i).GetChild(1).gameObject.SetActive(false);
@@ -34,13 +45,14 @@ public class ShopManager : MonoBehaviour
         if(coinManager.amountCoin >= itemSelected.buyPriceItem)
         {
             coinManager.DecrementCoin(itemSelected.buyPriceItem);
-            invetoryPlayer.listItens.Add(itemSelected);
+            inventoryPlayer.listItens.Add(itemSelected);
         }
     }
 
     public void SellItem()
     {
         coinManager.IncrementCoin(itemSelected.resalePriceItem);
+        inventoryPlayer.listItens.Remove(itemSelected);
         Destroy(itemSelectedObj);
     }
 

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public enum InventoryType { inventoryNPC, inventoryPlayer};
 public class DisplayInventory : MonoBehaviour
@@ -10,7 +12,7 @@ public class DisplayInventory : MonoBehaviour
     public GameObject itemDefault;
     public Transform grid;
     public InventoryType inventoryType;
-    
+
     private void OnEnable()
     {
         CreateDisplay(inventoryReference.listItens);
@@ -30,6 +32,7 @@ public class DisplayInventory : MonoBehaviour
                 {
                     GameObject obj = Instantiate(itemDefault, grid);
                     obj.GetComponent<SetupItem>().item = inventoryReference.listItens[i];
+                    obj.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = $"£{inventoryReference.listItens[i].buyPriceItem}";
                     obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ShopManager.Instance.GetItem(obj.GetComponent<SetupItem>().item, obj));
                 }
                 break;
@@ -38,8 +41,7 @@ public class DisplayInventory : MonoBehaviour
                 {
                     GameObject obj = Instantiate(itemDefault, grid);
                     obj.GetComponent<SetupItem>().item = inventoryReference.listItens[i];
-
-                    Destroy(obj.transform.GetChild(3).gameObject);
+                    obj.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = $"£{inventoryReference.listItens[i].resalePriceItem}"; 
                     obj.transform.GetChild(2).GetComponent<Button>().onClick.AddListener(() => ShopManager.Instance.GetItem(obj.GetComponent<SetupItem>().item, obj));
                 }
                 break;
