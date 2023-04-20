@@ -33,6 +33,8 @@ public class ShopManager : MonoBehaviour
         itemSelectedObj = null;
     }
 
+    //References the item being clicked to the itemSelected and itemSelectedObj variables.
+    //This helps to identify the item being clicked on in order to manipulate it.
     public void GetItem(Item item, GameObject obj)
     {
         itemSelected = item;
