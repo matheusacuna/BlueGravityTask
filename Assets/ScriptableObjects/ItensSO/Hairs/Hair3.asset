@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Hair3
   m_EditorClassIdentifier: 
   typeEquips: 0
-  iconItem: {fileID: 1903942476, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
+  iconItem: {fileID: 709026117, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
   buyPriceItem: 10
   resalePriceItem: 5
   sprites:
-  - {fileID: 1903942476, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
+  - {fileID: 709026117, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
