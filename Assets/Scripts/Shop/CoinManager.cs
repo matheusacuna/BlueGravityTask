@@ -9,7 +9,6 @@ public class CoinManager : MonoBehaviour
     public float amountCoin;
     public TextMeshProUGUI amountCoinTextUI;
 
-
     private void Update()
     {
         amountCoinTextUI.text = $"£{amountCoin}";

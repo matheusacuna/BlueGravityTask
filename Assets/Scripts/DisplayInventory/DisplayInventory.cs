@@ -23,6 +23,7 @@ public class DisplayInventory : MonoBehaviour
         DestroyGameObjectContainer();
     }
 
+    //Creates the inventory display according to its typing (Enums). Each typing has its presets.
     private void CreateDisplay(List<Item> list)
     {
         switch (inventoryType)
@@ -41,6 +42,7 @@ public class DisplayInventory : MonoBehaviour
                 {
                     GameObject obj = Instantiate(itemDefault, grid);
                     obj.GetComponent<SetupItem>().item = inventoryReference.listItens[i];
+
                     if(!isInventoryPlayerBag)
                     {
                         obj.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = $"£{inventoryReference.listItens[i].resalePriceItem}"; 

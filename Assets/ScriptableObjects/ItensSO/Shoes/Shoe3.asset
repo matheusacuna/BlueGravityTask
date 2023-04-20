@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Shoe3
   m_EditorClassIdentifier: 
   typeEquips: 2
-  iconItem: {fileID: -1009070204, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
+  iconItem: {fileID: -22706654, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
   buyPriceItem: 10
   resalePriceItem: 5
   sprites:
-  - {fileID: -1009070204, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
-  - {fileID: -1651350833, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
+  - {fileID: -22706654, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}
+  - {fileID: 991885967, guid: f9d775ee4dd9dcf42bde6d652431f96c, type: 3}

@@ -9,25 +9,30 @@ public class ShopManager : MonoBehaviour
     [Header("Item Selected")]
     public Item itemSelected;
     public GameObject itemSelectedObj;
-    public bool porchasedItem;
 
     [Header("References Scripts")]
     [SerializeField] CoinManager coinManager;
     [SerializeField] InventorySO inventoryPlayer;
     [SerializeField] GameObject feedbackAcquisitionItem;
+    [SerializeField] GameObject feedbackItemExist;
     public DisplayInventory displayInventory;
 
     [Header("Buttons Shop")]
     public GameObject buttonPurchase;
     public GameObject buttonSell;
 
-    private Transform topParentTransform;
-
     public static ShopManager Instance;
     private void Awake()
     {
         Instance = this;
     }
+
+    private void OnDisable()
+    {
+        itemSelected = null;
+        itemSelectedObj = null;
+    }
+
     public void GetItem(Item item, GameObject obj)
     {
         itemSelected = item;
@@ -62,6 +67,10 @@ public class ShopManager : MonoBehaviour
                 inventoryPlayer.listItens.Add(itemSelected);
                 feedbackAcquisitionItem.GetComponent<Animator>().Play("feedbackAcquisitionShop", -1, 0.0f);
             }
+        }
+        else
+        {
+            feedbackItemExist.SetActive(true);
         }
     }
 

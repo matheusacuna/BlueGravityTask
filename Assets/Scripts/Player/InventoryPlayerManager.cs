@@ -10,6 +10,7 @@ public class InventoryPlayerManager : MonoBehaviour
     public EquipsPlayer equipsPlayer;
     public EquipsIlustrationPlayer equipsIlustrationPlayer;
 
+    //Select and Choose an item to equip.
     public void UseItem()
     {
         switch (ShopManager.Instance.itemSelected.typeEquips)
@@ -26,6 +27,7 @@ public class InventoryPlayerManager : MonoBehaviour
         }
     }
 
+    //Get Sprites Parts Equips from ShopManager Script to use in Function UseItem().
     private void GetEquipsParts(SpriteRenderer[] spriteReference, Image[] spriteImageReference)
     {
         for (int i = 0; i < spriteReference.Length; i++)
