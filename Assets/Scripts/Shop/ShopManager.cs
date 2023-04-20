@@ -16,7 +16,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] InventorySO inventoryPlayer;
     public DisplayInventory displayInventory;
 
+    [Header("Buttons Shop")]
     public GameObject buttonPurchase;
+    public GameObject buttonSell;
+
+    public Transform topParentTransform;
 
     public static ShopManager Instance;
     private void Awake()
@@ -34,9 +38,16 @@ public class ShopManager : MonoBehaviour
         }
         itemSelectedObj.transform.GetChild(1).gameObject.SetActive(true);
 
-        if(displayInventory.inventoryType == InventoryType.inventoryNPC)
+        switch (itemSelectedObj.GetComponentInParent<DisplayInventory>().inventoryType)
         {
-            buttonPurchase.gameObject.SetActive(true);
+            case InventoryType.inventoryNPC:
+                buttonPurchase.gameObject.SetActive(true);
+                buttonSell.gameObject.SetActive(false);
+                break;
+            case InventoryType.inventoryPlayer:
+                buttonPurchase.gameObject.SetActive(false);
+                buttonSell.gameObject.SetActive(true);
+                break;
         }
     }
 
