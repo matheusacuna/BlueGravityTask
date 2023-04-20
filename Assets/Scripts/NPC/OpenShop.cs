@@ -9,7 +9,7 @@ namespace Managers
         [SerializeField] bool isTouchNPC;
         [SerializeField] private GameObject animAlertShop;
         [SerializeField] private GameObject shopUI;
-        [SerializeField] private GameObject shopUISellOption;
+        //[SerializeField] private GameObject shopUISellOption;
         [SerializeField] private InputManager myInput;
         [SerializeField] private DisplayInventory displayInventory;
 
@@ -24,7 +24,7 @@ namespace Managers
                     ShopManager.Instance.displayInventory = displayInventory;
                     displayInventory.inventoryReference = inventorySO;
                     shopUI.SetActive(true);
-                    shopUISellOption.SetActive(true);
+                    //shopUISellOption.SetActive(true);
                 }
             }
         }
