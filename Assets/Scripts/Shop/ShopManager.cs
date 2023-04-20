@@ -9,18 +9,19 @@ public class ShopManager : MonoBehaviour
     [Header("Item Selected")]
     public Item itemSelected;
     public GameObject itemSelectedObj;
-    public bool isSelected;
+    public bool porchasedItem;
 
     [Header("References Scripts")]
     [SerializeField] CoinManager coinManager;
     [SerializeField] InventorySO inventoryPlayer;
+    [SerializeField] GameObject feedbackAcquisitionItem;
     public DisplayInventory displayInventory;
 
     [Header("Buttons Shop")]
     public GameObject buttonPurchase;
     public GameObject buttonSell;
 
-    public Transform topParentTransform;
+    private Transform topParentTransform;
 
     public static ShopManager Instance;
     private void Awake()
@@ -53,18 +54,25 @@ public class ShopManager : MonoBehaviour
 
     public void BuyItem()
     {
-        if(coinManager.amountCoin >= itemSelected.buyPriceItem)
+        if(!inventoryPlayer.listItens.Contains(itemSelected))
         {
-            coinManager.DecrementCoin(itemSelected.buyPriceItem);
-            inventoryPlayer.listItens.Add(itemSelected);
+            if(coinManager.amountCoin >= itemSelected.buyPriceItem)
+            {
+                coinManager.DecrementCoin(itemSelected.buyPriceItem);
+                inventoryPlayer.listItens.Add(itemSelected);
+                feedbackAcquisitionItem.GetComponent<Animator>().Play("feedbackAcquisitionShop", -1, 0.0f);
+            }
         }
     }
 
     public void SellItem()
     {
-        coinManager.IncrementCoin(itemSelected.resalePriceItem);
-        inventoryPlayer.listItens.Remove(itemSelected);
-        Destroy(itemSelectedObj);
+        if(itemSelectedObj != null)
+        {
+            coinManager.IncrementCoin(itemSelected.resalePriceItem);
+            inventoryPlayer.listItens.Remove(itemSelected);
+            Destroy(itemSelectedObj);
+        }
     }
 
 }
