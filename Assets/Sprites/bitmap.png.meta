@@ -719,12 +719,12 @@ TextureImporter:
       name: bitmap_43
       rect:
         serializedVersion: 2
-        x: 873
+        x: 872
         y: 753
-        width: 148
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 149
+        height: 104
+      alignment: 9
+      pivot: {x: 0.5563252, y: 0.49999884}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
